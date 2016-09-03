@@ -9,7 +9,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private List<String> list;
-    private GridView gridView;
+    private DragGridView gridView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +25,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     private void initView(){
-        gridView = (GridView) findViewById(R.id.drag_grid_view);
+        gridView = (DragGridView) findViewById(R.id.drag_grid_view);
         GridViewAdapter adapter = new GridViewAdapter(this,list);
         gridView.setAdapter(adapter);
+        gridView.setExpanded(true);
+        gridView.setFocusable(false);
     }
 }
